@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import productRoutes from './routes/productRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use('/api', productRoutes);
 
 app.get('/health', (req, res) => {
   res.status(200).json({
@@ -19,6 +21,8 @@ app.get('/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+
 
 if (process.env.NODE_ENV !== 'test') {
   const server = app.listen(PORT, '0.0.0.0', () => {
