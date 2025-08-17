@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import productRoutes from './routes/productRoutes.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { logger } from './middleware/logger.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,8 +13,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+app.use(logger);
+app.use(errorHandler);
+
 app.use(express.json());
 app.use('/api', productRoutes);
+
 
 app.get('/health', (req, res) => {
   res.status(200).json({
