@@ -8,7 +8,9 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "test": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --silent",
-    "test:watch": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --watch"
+    "test:watch": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --watch",
+    "test:cov": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --coverage --silent",
+    "test:ci": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --coverage --runInBand --silent"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,29 @@
     "transform": {},
     "forceExit": true,
     "detectOpenHandles": true,
-    "testTimeout": 10000
+    "testTimeout": 10000,
+    "collectCoverage": true,
+    "coverageProvider": "v8",
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["text", "lcov", "html"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/**/__tests__/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/",
+      "/build/",
+      "/coverage/",
+      "src/server\\.js$"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 100,
+        "lines": 55,
+        "statements": 55
+      }
+    }
   }
 }
