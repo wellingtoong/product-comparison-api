@@ -66,5 +66,25 @@ describe('API de Comparação de Produtos', () => {
       expect(response.body.message).toContain('não encontrado');
     });
   });
+
+  describe('GET /api/products/compare', () => {
+    it('deve retornar dados formatados para comparação', async () => {
+      const response = await request(app)
+        .get('/api/products/compare')
+        .expect(200);
+      
+      expect(response.body).toHaveProperty('success', true);
+      expect(response.body).toHaveProperty('data');
+      expect(Array.isArray(response.body.data)).toBe(true);
+      
+      const firstProduct = response.body.data[0];
+      expect(firstProduct).toHaveProperty('id');
+      expect(firstProduct).toHaveProperty('nome');
+      expect(firstProduct).toHaveProperty('preco');
+      expect(firstProduct).toHaveProperty('classificacao');
+      expect(firstProduct).toHaveProperty('resumo');
+      expect(firstProduct).toHaveProperty('especificacoesPrincipais');
+    });
+  });
 });
 
