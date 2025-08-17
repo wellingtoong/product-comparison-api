@@ -1,9 +1,10 @@
-import { readProductsData } from "../utils/dataReader.js"
+import { readProductsData } from '../utils/dataReader.js';
+import { createError } from '../middleware/errorHandler.js';
 
 export const getAllProducts = async (req, res, next) => {
     try {
         const products = await readProductsData();
-        
+
         res.status(200).json({
             success: true,
             message: 'Produtos recuperados com sucesso',
@@ -12,7 +13,7 @@ export const getAllProducts = async (req, res, next) => {
             timestamp: new Date().toISOString()
         });
     } catch (error) {
-        console.error('Erro ao buscar produtos');
+        next(createError(500, 'Erro ao buscar produtos'));
     }
 };
 
@@ -20,13 +21,13 @@ export const getProductById = async (req, res, next) => {
     try {
         const { id } = req.params;
         const products = await readProductsData();
-        
+
         const product = products.find(p => p.id === id);
-        
+
         if (!product) {
-        console.error(`Produto com ID '${id}' não encontrado`);
+            return next(createError(404, `Produto com ID '${id}' não encontrado`));
         }
-        
+
         res.status(200).json({
             success: true,
             message: 'Produto encontrado com sucesso',
@@ -34,14 +35,14 @@ export const getProductById = async (req, res, next) => {
             timestamp: new Date().toISOString()
         });
     } catch (error) {
-        console.error('Erro ao buscar produto');
+        next(createError(500, 'Erro ao buscar produto'));
     }
 };
 
 export const getProductsForComparison = async (req, res, next) => {
     try {
         const products = await readProductsData();
-        
+
         const comparisonData = products.map(product => ({
             id: product.id,
             nome: product.nome,
@@ -55,7 +56,7 @@ export const getProductsForComparison = async (req, res, next) => {
                 cor: product.especificacoes?.cor || 'N/A'
             }
         }));
-        
+
         res.status(200).json({
             success: true,
             message: 'Dados de comparação recuperados com sucesso',
@@ -64,6 +65,6 @@ export const getProductsForComparison = async (req, res, next) => {
             timestamp: new Date().toISOString()
         });
     } catch (error) {
-        console.error('Erro ao buscar dados de comparação');
+        next(createError(500, 'Erro ao buscar dados de comparação'));
     }
 };
