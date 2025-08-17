@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+
 import productRoutes from './routes/productRoutes.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { logger } from './middleware/logger.js';
