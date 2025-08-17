@@ -1,0 +1,19 @@
+{
+  "name": "product-comparison-api",
+  "version": "1.0.0",
+  "description": "API RESTful para comparação de produtos",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellingtoong/product-comparison-api.git"
+  },
+  "author": "Wellington Gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wellingtoong/product-comparison-api/issues"
+  },
+  "homepage": "https://github.com/wellingtoong/product-comparison-api#readme"
+}
