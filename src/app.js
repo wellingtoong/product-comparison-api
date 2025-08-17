@@ -99,16 +99,35 @@ app.get('/', (req, res) => {
   });
 });
 
+// Rotas da API
 app.use('/api', productRoutes);
 
+// Middleware de tratamento de erros (deve ser o último)
 app.use(errorHandler);
 
+// Função para inicializar o servidor (apenas se não estiver em ambiente de teste)
 if (process.env.NODE_ENV !== 'test') {
   const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor rodando na porta ${PORT}`);
     console.log(`Acesse: http://localhost:${PORT}`);
     console.log(`Health check: http://localhost:${PORT}/health`);
   });
-}
 
+  // Graceful shutdown
+  process.on('SIGTERM', () => {
+    console.log('Recebido SIGTERM, encerrando servidor...');
+    server.close(() => {
+      console.log('Servidor encerrado com sucesso');
+      process.exit(0);
+    });
+  });
+
+  process.on('SIGINT', () => {
+    console.log('Recebido SIGINT, encerrando servidor...');
+    server.close(() => {
+      console.log('Servidor encerrado com sucesso');
+      process.exit(0);
+    });
+  });
+}
 export default app;

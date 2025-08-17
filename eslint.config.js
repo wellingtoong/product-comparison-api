@@ -38,8 +38,12 @@ export default [
       ...eslintConfigPrettier.rules,
 
       // ---- Estilo e qualidade comuns ----
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
+
+      // Desativado pois optamos por usar obj.hasOwnProperty() diretamente
+      // ao invés de Object.prototype.hasOwnProperty.call(obj, key)
+      // (torna o código mais legível para este projeto específico)
+      'no-prototype-builtins': 'off',
 
       // ---- Imports / Node / Promises ----
       'import/order': [

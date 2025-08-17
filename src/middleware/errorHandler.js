@@ -1,6 +1,11 @@
+/**
+ * Middleware de tratamento de erros global
+ * Captura e padroniza as respostas de erro da API
+ */
 export const errorHandler = (err, req, res, next) => {
   console.error('Erro capturado:', err);
 
+  // Erro de validação ou personalizado
   if (err.status) {
     return res.status(err.status).json({
       error: true,
@@ -10,6 +15,7 @@ export const errorHandler = (err, req, res, next) => {
     });
   }
 
+  // Erro de sintaxe JSON
   if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
     return res.status(400).json({
       error: true,
@@ -19,6 +25,7 @@ export const errorHandler = (err, req, res, next) => {
     });
   }
 
+  // Erro interno do servidor (500)
   res.status(500).json({
     error: true,
     message: 'Erro interno do servidor',
@@ -27,6 +34,9 @@ export const errorHandler = (err, req, res, next) => {
   });
 };
 
+/**
+ * Função utilitária para criar erros personalizados
+ */
 export const createError = (status, message) => {
   const error = new Error(message);
   error.status = status;
