@@ -1,1 +1,31 @@
-console.log("Olá, teste debuug!")
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.use(express.json());
+
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'API de Comparação de Produtos está funcionando',
+    timestamp: new Date().toISOString()
+  });
+});
+
+if (process.env.NODE_ENV !== 'test') {
+  const server = app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Acesse: http://localhost:${PORT}`);
+    console.log(`Health check: http://localhost:${PORT}/health`);
+  });
+}
+
+export default app;
