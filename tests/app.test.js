@@ -44,5 +44,27 @@ describe('API de Comparação de Produtos', () => {
     });
   });
 
+  describe('GET /api/products/:id', () => {
+    it('deve retornar um produto específico com status 200', async () => {
+      const response = await request(app)
+        .get('/api/products/smartphone-001')
+        .expect(200);
+      
+      expect(response.body).toHaveProperty('success', true);
+      expect(response.body).toHaveProperty('data');
+      expect(response.body.data).toHaveProperty('id', 'smartphone-001');
+      expect(response.body.data).toHaveProperty('nome');
+    });
+
+    it('deve retornar erro 404 para produto inexistente', async () => {
+      const response = await request(app)
+        .get('/api/products/produto-inexistente')
+        .expect(404);
+      
+      expect(response.body).toHaveProperty('error', true);
+      expect(response.body).toHaveProperty('message');
+      expect(response.body.message).toContain('não encontrado');
+    });
+  });
 });
 
