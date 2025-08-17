@@ -4,6 +4,7 @@
   "description": "API RESTful para comparação de produtos",
   "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/wellingtoong/product-comparison-api/issues"
   },
-  "homepage": "https://github.com/wellingtoong/product-comparison-api#readme"
+  "homepage": "https://github.com/wellingtoong/product-comparison-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
 }
