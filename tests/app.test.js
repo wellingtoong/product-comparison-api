@@ -86,5 +86,32 @@ describe('API de Comparação de Produtos', () => {
       expect(firstProduct).toHaveProperty('especificacoesPrincipais');
     });
   });
+
+  describe('Tratamento de Erros', () => {
+    it('deve retornar erro 404 para rota inexistente', async () => {
+      const response = await request(app)
+        .get('/api/rota-inexistente')
+        .expect(404);
+    });
+
+    it('deve incluir timestamp e path nas respostas de erro', async () => {
+      const response = await request(app)
+        .get('/api/products/produto-inexistente')
+        .expect(404);
+      
+      expect(response.body).toHaveProperty('timestamp');
+      expect(response.body).toHaveProperty('path');
+    });
+  });
+
+  describe('CORS', () => {
+    it('deve incluir headers CORS nas respostas', async () => {
+      const response = await request(app)
+        .get('/api/products')
+        .expect(200);
+      
+      expect(response.headers).toHaveProperty('access-control-allow-origin');
+    });
+  });
 });
 
