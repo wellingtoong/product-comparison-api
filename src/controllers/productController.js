@@ -38,4 +38,32 @@ export const getProductById = async (req, res, next) => {
     }
 };
 
-export const getProductsForComparison = async (req, res, next) => {};
+export const getProductsForComparison = async (req, res, next) => {
+    try {
+        const products = await readProductsData();
+        
+        const comparisonData = products.map(product => ({
+            id: product.id,
+            nome: product.nome,
+            preco: product.preco,
+            classificacao: product.classificacao,
+            urlImagem: product.urlImagem,
+            resumo: product.descricao.substring(0, 100) + '...',
+            especificacoesPrincipais: {
+                dimensoes: product.especificacoes?.dimensoes || 'N/A',
+                peso: product.especificacoes?.peso || 'N/A',
+                cor: product.especificacoes?.cor || 'N/A'
+            }
+        }));
+        
+        res.status(200).json({
+            success: true,
+            message: 'Dados de comparação recuperados com sucesso',
+            data: comparisonData,
+            total: comparisonData.length,
+            timestamp: new Date().toISOString()
+        });
+    } catch (error) {
+        console.error('Erro ao buscar dados de comparação');
+    }
+};
