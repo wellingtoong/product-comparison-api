@@ -8,7 +8,7 @@ import {
 const router = express.Router();
 
 router.get('/products', getAllProducts);
-router.get('/products/:id', getProductById);
 router.get('/products/compare', getProductsForComparison);
+router.get('/products/:id', getProductById);
 
 export default router;
