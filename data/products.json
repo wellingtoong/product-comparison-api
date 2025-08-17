@@ -1,0 +1,114 @@
+[
+  {
+    "id": "smartphone-001",
+    "nome": "Smartphone Galaxy Pro Max",
+    "urlImagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400",
+    "descricao": "Smartphone premium com tela AMOLED de 6.7 polegadas, processador octa-core de última geração, câmera tripla de 108MP e bateria de longa duração. Ideal para usuários que buscam performance e qualidade fotográfica superior.",
+    "preco": 2499.99,
+    "classificacao": 4.8,
+    "especificacoes": {
+      "dimensoes": "160.8 x 78.1 x 7.4 mm",
+      "peso": "228g",
+      "cor": "Azul Oceano",
+      "tela": "6.7\" AMOLED 120Hz",
+      "processador": "Snapdragon 8 Gen 2",
+      "memoria": "256GB",
+      "ram": "12GB",
+      "bateria": "5000mAh",
+      "camera": "108MP + 12MP + 12MP"
+    }
+  },
+  {
+    "id": "laptop-002",
+    "nome": "Notebook UltraBook Pro 15",
+    "urlImagem": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400",
+    "descricao": "Notebook profissional com processador Intel Core i7 de 12ª geração, 16GB de RAM, SSD de 512GB e placa de vídeo dedicada. Perfeito para trabalho, estudos e entretenimento com design elegante e portabilidade.",
+    "preco": 4299.99,
+    "classificacao": 4.6,
+    "especificacoes": {
+      "dimensoes": "356 x 243 x 17.9 mm",
+      "peso": "1.8kg",
+      "cor": "Prata Espacial",
+      "tela": "15.6\" Full HD IPS",
+      "processador": "Intel Core i7-1255U",
+      "memoria": "512GB SSD",
+      "ram": "16GB DDR4",
+      "bateria": "Até 10 horas",
+      "placa_video": "NVIDIA GeForce MX450"
+    }
+  },
+  {
+    "id": "headphone-003",
+    "nome": "Fone de Ouvido Wireless Premium",
+    "urlImagem": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+    "descricao": "Fone de ouvido sem fio com cancelamento ativo de ruído, qualidade de som Hi-Fi, bateria de 30 horas e design confortável. Ideal para música, trabalho e chamadas com qualidade profissional.",
+    "preco": 899.99,
+    "classificacao": 4.7,
+    "especificacoes": {
+      "dimensoes": "190 x 165 x 78 mm",
+      "peso": "290g",
+      "cor": "Preto Fosco",
+      "conectividade": "Bluetooth 5.2",
+      "bateria": "30 horas",
+      "cancelamento_ruido": "Ativo (ANC)",
+      "drivers": "40mm",
+      "resposta_frequencia": "20Hz - 20kHz"
+    }
+  },
+  {
+    "id": "smartwatch-004",
+    "nome": "Smartwatch Fitness Pro",
+    "urlImagem": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+    "descricao": "Smartwatch com monitoramento completo de saúde, GPS integrado, resistência à água, mais de 100 modalidades esportivas e bateria de 7 dias. Companheiro perfeito para um estilo de vida ativo e saudável.",
+    "preco": 1299.99,
+    "classificacao": 4.5,
+    "especificacoes": {
+      "dimensoes": "46 x 46 x 10.7 mm",
+      "peso": "52g",
+      "cor": "Cinza Titânio",
+      "tela": "1.43\" AMOLED",
+      "bateria": "7 dias",
+      "resistencia_agua": "5ATM",
+      "gps": "Integrado",
+      "sensores": "Frequência cardíaca, SpO2, Acelerômetro"
+    }
+  },
+  {
+    "id": "tablet-005",
+    "nome": "Tablet Pro 11 polegadas",
+    "urlImagem": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "descricao": "Tablet profissional com tela Liquid Retina de 11 polegadas, processador M2, suporte para Apple Pencil e Magic Keyboard. Ideal para criatividade, produtividade e entretenimento com performance de notebook.",
+    "preco": 3499.99,
+    "classificacao": 4.9,
+    "especificacoes": {
+      "dimensoes": "247.6 x 178.5 x 5.9 mm",
+      "peso": "466g",
+      "cor": "Cinza Espacial",
+      "tela": "11\" Liquid Retina",
+      "processador": "Apple M2",
+      "memoria": "256GB",
+      "ram": "8GB",
+      "bateria": "Até 10 horas",
+      "conectividade": "Wi-Fi 6E, USB-C"
+    }
+  },
+  {
+    "id": "camera-006",
+    "nome": "Câmera Digital Mirrorless 4K",
+    "urlImagem": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400",
+    "descricao": "Câmera mirrorless profissional com sensor APS-C de 26MP, gravação 4K, estabilização de imagem de 5 eixos e sistema de foco híbrido. Perfeita para fotógrafos e videomakers que buscam qualidade profissional.",
+    "preco": 5299.99,
+    "classificacao": 4.8,
+    "especificacoes": {
+      "dimensoes": "121 x 83 x 69 mm",
+      "peso": "503g",
+      "cor": "Preto",
+      "sensor": "APS-C 26.1MP",
+      "video": "4K 30fps",
+      "estabilizacao": "5 eixos",
+      "iso": "100-32000",
+      "bateria": "Até 440 fotos"
+    }
+  }
+]
+
