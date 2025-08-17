@@ -1,6 +1,10 @@
 import { readProductsData } from '../utils/dataReader.js';
 import { createError } from '../middleware/errorHandler.js';
 
+/**
+ * Retorna todos os produtos disponíveis
+ * @route GET /api/products
+ */
 export const getAllProducts = async (req, res, next) => {
   try {
     const products = await readProductsData();
@@ -18,6 +22,10 @@ export const getAllProducts = async (req, res, next) => {
   }
 };
 
+/**
+ * Retorna um produto específico pelo ID
+ * @route GET /api/products/:id
+ */
 export const getProductById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -41,10 +49,15 @@ export const getProductById = async (req, res, next) => {
   }
 };
 
+/**
+ * Retorna produtos formatados especificamente para comparação
+ * @route GET /api/products/compare
+ */
 export const getProductsForComparison = async (req, res, next) => {
   try {
     const products = await readProductsData();
 
+    // Formata os produtos para comparação, destacando campos importantes
     const comparisonData = products.map((product) => ({
       id: product.id,
       nome: product.nome,
