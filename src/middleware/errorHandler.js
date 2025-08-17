@@ -6,7 +6,7 @@ export const errorHandler = (err, req, res, next) => {
       error: true,
       message: err.message,
       timestamp: new Date().toISOString(),
-      path: req.path
+      path: req.path,
     });
   }
 
@@ -15,7 +15,7 @@ export const errorHandler = (err, req, res, next) => {
       error: true,
       message: 'JSON inválido na requisição',
       timestamp: new Date().toISOString(),
-      path: req.path
+      path: req.path,
     });
   }
 
@@ -23,7 +23,7 @@ export const errorHandler = (err, req, res, next) => {
     error: true,
     message: 'Erro interno do servidor',
     timestamp: new Date().toISOString(),
-    path: req.path
+    path: req.path,
   });
 };
 
@@ -32,4 +32,3 @@ export const createError = (status, message) => {
   error.status = status;
   return error;
 };
-

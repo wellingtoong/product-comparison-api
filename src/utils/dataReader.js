@@ -9,34 +9,33 @@ const PRODUCTS_FILE_PATH = path.join(__dirname, '../../data/products.json');
 
 export const readProductsData = async () => {
   try {
-
     await fs.access(PRODUCTS_FILE_PATH);
     const fileContent = await fs.readFile(PRODUCTS_FILE_PATH, 'utf-8');
-    
+
     const products = JSON.parse(fileContent);
-    
+
     if (!Array.isArray(products)) {
       throw new Error('Dados dos produtos devem ser um array');
     }
-    
+
     return products;
   } catch (error) {
     if (error.code === 'ENOENT') {
       throw new Error('Arquivo de dados dos produtos não encontrado');
     }
-    
+
     if (error instanceof SyntaxError) {
       throw new Error('Formato JSON inválido no arquivo de produtos');
     }
-    
+
     throw error;
   }
 };
 
 export const validateProductStructure = (product) => {
   const requiredFields = ['id', 'nome', 'urlImagem', 'descricao', 'preco', 'classificacao'];
-  
-  return requiredFields.every(field => {
+
+  return requiredFields.every((field) => {
     return product.hasOwnProperty(field) && product[field] !== null && product[field] !== undefined;
   });
 };

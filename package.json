@@ -12,7 +12,9 @@
     "test:cov": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --coverage --silent",
     "test:ci": "NODE_ENV=test NODE_OPTIONS=\"--experimental-vm-modules\" jest --coverage --runInBand --silent",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -31,13 +33,16 @@
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-n": "^17.21.3",
+    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-promise": "^7.2.1",
     "globals": "^16.3.0",
     "jest": "^30.0.5",
     "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
     "supertest": "^7.1.4"
   },
   "jest": {

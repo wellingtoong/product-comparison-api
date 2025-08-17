@@ -10,11 +10,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(logger);
 
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 
 app.use(express.json());
 
@@ -24,7 +26,7 @@ app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'OK',
     message: 'API de Comparação de Produtos está funcionando',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 
