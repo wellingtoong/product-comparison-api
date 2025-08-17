@@ -28,5 +28,12 @@
     "jest": "^30.0.5",
     "nodemon": "^3.1.10",
     "supertest": "^7.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {},
+    "forceExit": true,
+    "detectOpenHandles": true,
+    "testTimeout": 10000
   }
 }
