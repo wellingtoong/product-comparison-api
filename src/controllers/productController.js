@@ -13,6 +13,7 @@ export const getAllProducts = async (req, res, next) => {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
+    console.error(error);
     next(createError(500, 'Erro ao buscar produtos'));
   }
 };
@@ -35,6 +36,7 @@ export const getProductById = async (req, res, next) => {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
+    console.error(error);
     next(createError(500, 'Erro ao buscar produto'));
   }
 };
@@ -65,6 +67,7 @@ export const getProductsForComparison = async (req, res, next) => {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
+    console.error(error);
     next(createError(500, 'Erro ao buscar dados de comparação'));
   }
 };
