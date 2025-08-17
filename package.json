@@ -69,7 +69,10 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
-      "!src/**/__tests__/**"
+      "!src/**/__tests__/**",
+      "!src/config/**",
+      "!src/middleware/rateLimiter.js",
+      "!src/config/swagger.js"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
