@@ -32,3 +32,11 @@ export const readProductsData = async () => {
     throw error;
   }
 };
+
+export const validateProductStructure = (product) => {
+  const requiredFields = ['id', 'nome', 'urlImagem', 'descricao', 'preco', 'classificacao'];
+  
+  return requiredFields.every(field => {
+    return product.hasOwnProperty(field) && product[field] !== null && product[field] !== undefined;
+  });
+};
